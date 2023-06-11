@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oculus-Void-Manager", "Oculus-Void-Manager.csproj", "{95826FA3-F246-40EE-B562-3F06FCFB482A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95826FA3-F246-40EE-B562-3F06FCFB482A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95826FA3-F246-40EE-B562-3F06FCFB482A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95826FA3-F246-40EE-B562-3F06FCFB482A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95826FA3-F246-40EE-B562-3F06FCFB482A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DD7D286-3D1C-4DB2-9D80-A5C49D9FEAAD}
+	EndGlobalSection
+EndGlobal
