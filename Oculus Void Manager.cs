@@ -9,29 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
+
 using Microsoft.Win32;
+//TO-DO
+
+/* Record GIFS ------------------------- ColorClick()
+ * 
+ * Implement Non-default specificity --- CurrentString()
+ * 
+ * File.Copy --------------------------- DoneBtn.Click()   
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 namespace Oculus_Void_Manager
 {
-    //TO-DO
-    //Display the 
     public partial class Form1 : Form
     {
+        public char Chosen = 'X';
 
-        public string CheckIfFilesExist()
+        public string CheckIfPathExist()
         {
-            string voidPath = @"\Support\oculus-dash\dash\assets\raw\textures\environment\the_void";
-            string darkGridDDS = voidPath + @"\grid_plane_007.dds";
-            string darkDotDDS = voidPath + @"\grid_plane_004.dds";
-            string greyDotsDDS = voidPath + @"\grid_plane_003.dds";
-            string lightGridDDS = voidPath + @"\grid_plane_006.dds";
+            string voidPath = @"\Support\oculus-dash\dash\assets\raw\textures\environment\the_void\";
             RegistryKey oculusKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Oculus VR, LLC\Oculus");
             string basePath = (string)oculusKey.GetValue("Base");
+
             if (Directory.Exists(basePath))
-            {
                 basePath += voidPath;
-            }
             else
             {
                 MessageBox.Show("Oculus Directory Not Found.");
@@ -41,28 +52,88 @@ namespace Oculus_Void_Manager
             return basePath;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public string CurrentString()
         {
-            //Check whichever one is named 006
-            DefaultBtn.Checked = true;
-            CheckIfFilesExist();
+            RegistryKey oculusKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Oculus VR, LLC\Oculus");
+            string basePath = (string)oculusKey.GetValue("Base");
+            string path = basePath + @"\Support\oculus-dash\dash\assets\raw\textures\environment\the_void\";
 
+            if (Directory.GetFiles(path, "*.old").Length == 0)
+                return "Default (White Lines)";
+            else
+            {
+                return "Non-Default";
+            }
+               
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Text = "OVM";
+            DefaultBtn.Checked = true;
+            CurrentLbl.Text = CurrentString();   
+            CheckIfPathExist();
+        }
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void DefaultBtn_MouseClick(object sender, MouseEventArgs e)
         {
+            CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.Default_Image;
+            gifBox.Image = Oculus_Void_Manager.Properties.Resources._default;
+            Chosen = 'A';
         }
 
-        private void TitleLbl_Click(object sender, EventArgs e)
+        private void GreyBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            
+            CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
+            gifBox.Image = Oculus_Void_Manager.Properties.Resources.greydot;
+            Chosen = 'B';
         }
 
+        private void BlackLineBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
+            gifBox.Image = Oculus_Void_Manager.Properties.Resources.blackline;
+            Chosen = 'C';
+        }
+
+        private void BlackDotsBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
+            gifBox.Image = Oculus_Void_Manager.Properties.Resources.blackdot;
+            Chosen = 'D';
+        }
+
+        private void DoneBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+            string C = CheckIfPathExist() + @"\grid_plane_007.dds";
+            string D = CheckIfPathExist() + @"\grid_plane_004.dds";
+            string B = CheckIfPathExist() + @"\grid_plane_003.dds";
+            string A = CheckIfPathExist() + @"\grid_plane_006.dds";//default
+            switch (Chosen)
+            {
+                case 'A':
+                    if (CurrentLbl.Text[0] == 'D')
+                    
+                    File.Copy(x, x, true);
+                    break;
+                case 'B':
+                    File.Copy(x, x, true);
+                    break;
+                case 'C':
+                    File.Copy(x, x, true);
+                    break;
+                case 'D':
+                    File.Copy(x, x, true);
+                    break;
+                case 'X':
+                    MessageBox.Show("Error: Selection Not Found.");
+                    break;
+            }
+        }
     }
 }

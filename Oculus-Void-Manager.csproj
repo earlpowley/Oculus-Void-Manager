@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\yellow_back.png" />
+    <None Include="Resources\blackdot.png" />
+    <None Include="Resources\blackline.png" />
+    <None Include="Resources\greydot.png" />
+    <None Include="Resources\default.png" />
+    <None Include="Resources\DefaultWhiteLines.mp4" />
+    <None Include="Resources\blackdots.gif" />
+    <None Include="Resources\ee013224dc68ec0c8e98428e0e512d6a.png" />
+    <None Include="Resources\grid_plane_005.png" />
+    <None Include="Resources\Default-Picture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

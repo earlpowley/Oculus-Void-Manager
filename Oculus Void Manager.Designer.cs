@@ -28,56 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.DefaultBtn = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.GreyBtn = new System.Windows.Forms.RadioButton();
+            this.BlackLineBtn = new System.Windows.Forms.RadioButton();
             this.Text2112 = new System.Windows.Forms.Label();
             this.TitleLbl = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.BlackDotsBtn = new System.Windows.Forms.RadioButton();
             this.CurrentLbl = new System.Windows.Forms.Label();
             this.DoneBtn = new System.Windows.Forms.Button();
+            this.gifBox = new System.Windows.Forms.PictureBox();
             this.CurrentImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.gifBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentImage)).BeginInit();
             this.SuspendLayout();
             // 
             // DefaultBtn
             // 
             this.DefaultBtn.AutoSize = true;
-            this.DefaultBtn.Location = new System.Drawing.Point(108, 70);
+            this.DefaultBtn.Location = new System.Drawing.Point(80, 70);
             this.DefaultBtn.Name = "DefaultBtn";
             this.DefaultBtn.Size = new System.Drawing.Size(183, 24);
             this.DefaultBtn.TabIndex = 0;
             this.DefaultBtn.TabStop = true;
             this.DefaultBtn.Text = "Default (White Lines)";
             this.DefaultBtn.UseVisualStyleBackColor = true;
-            this.DefaultBtn.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.DefaultBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DefaultBtn_MouseClick);
             // 
-            // radioButton2
+            // GreyBtn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(108, 120);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(106, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Grey Dots";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.GreyBtn.AutoSize = true;
+            this.GreyBtn.Location = new System.Drawing.Point(80, 119);
+            this.GreyBtn.Name = "GreyBtn";
+            this.GreyBtn.Size = new System.Drawing.Size(106, 24);
+            this.GreyBtn.TabIndex = 1;
+            this.GreyBtn.TabStop = true;
+            this.GreyBtn.Text = "Grey Dots";
+            this.GreyBtn.UseVisualStyleBackColor = true;
+            this.GreyBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GreyBtn_MouseClick);
             // 
-            // radioButton3
+            // BlackLineBtn
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(108, 170);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(115, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Black Lines";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.BlackLineBtn.AutoSize = true;
+            this.BlackLineBtn.Location = new System.Drawing.Point(80, 170);
+            this.BlackLineBtn.Name = "BlackLineBtn";
+            this.BlackLineBtn.Size = new System.Drawing.Size(115, 24);
+            this.BlackLineBtn.TabIndex = 2;
+            this.BlackLineBtn.TabStop = true;
+            this.BlackLineBtn.Text = "Black Lines";
+            this.BlackLineBtn.UseVisualStyleBackColor = true;
+            this.BlackLineBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BlackLineBtn_MouseClick);
             // 
             // Text2112
             // 
             this.Text2112.AutoSize = true;
-            this.Text2112.Location = new System.Drawing.Point(355, 26);
+            this.Text2112.Location = new System.Drawing.Point(325, 26);
             this.Text2112.Name = "Text2112";
             this.Text2112.Size = new System.Drawing.Size(70, 20);
             this.Text2112.TabIndex = 3;
@@ -86,28 +91,30 @@
             // TitleLbl
             // 
             this.TitleLbl.AutoSize = true;
-            this.TitleLbl.Location = new System.Drawing.Point(108, 25);
+            this.TitleLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLbl.Location = new System.Drawing.Point(56, 19);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(161, 20);
+            this.TitleLbl.Size = new System.Drawing.Size(263, 29);
             this.TitleLbl.TabIndex = 4;
             this.TitleLbl.Text = "Oculus Void Manager";
-            this.TitleLbl.Click += new System.EventHandler(this.TitleLbl_Click);
             // 
-            // radioButton1
+            // BlackDotsBtn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(108, 220);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(111, 24);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Black Dots";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.BlackDotsBtn.AutoSize = true;
+            this.BlackDotsBtn.Location = new System.Drawing.Point(80, 220);
+            this.BlackDotsBtn.Name = "BlackDotsBtn";
+            this.BlackDotsBtn.Size = new System.Drawing.Size(111, 24);
+            this.BlackDotsBtn.TabIndex = 5;
+            this.BlackDotsBtn.TabStop = true;
+            this.BlackDotsBtn.Text = "Black Dots";
+            this.BlackDotsBtn.UseVisualStyleBackColor = true;
+            this.BlackDotsBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BlackDotsBtn_MouseClick);
             // 
             // CurrentLbl
             // 
             this.CurrentLbl.AutoSize = true;
-            this.CurrentLbl.Location = new System.Drawing.Point(416, 26);
+            this.CurrentLbl.Location = new System.Drawing.Point(386, 26);
             this.CurrentLbl.Name = "CurrentLbl";
             this.CurrentLbl.Size = new System.Drawing.Size(129, 20);
             this.CurrentLbl.TabIndex = 6;
@@ -121,12 +128,26 @@
             this.DoneBtn.TabIndex = 7;
             this.DoneBtn.Text = "Done";
             this.DoneBtn.UseVisualStyleBackColor = true;
+            this.DoneBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DoneBtn_MouseClick);
+            // 
+            // gifBox
+            // 
+            this.gifBox.Image = global::Oculus_Void_Manager.Properties.Resources.blackdot;
+            this.gifBox.Location = new System.Drawing.Point(405, 70);
+            this.gifBox.Name = "gifBox";
+            this.gifBox.Size = new System.Drawing.Size(110, 174);
+            this.gifBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gifBox.TabIndex = 9;
+            this.gifBox.TabStop = false;
             // 
             // CurrentImage
             // 
-            this.CurrentImage.Location = new System.Drawing.Point(359, 70);
+            this.CurrentImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CurrentImage.Image = ((System.Drawing.Image)(resources.GetObject("CurrentImage.Image")));
+            this.CurrentImage.Location = new System.Drawing.Point(318, 70);
             this.CurrentImage.Name = "CurrentImage";
-            this.CurrentImage.Size = new System.Drawing.Size(186, 174);
+            this.CurrentImage.Size = new System.Drawing.Size(197, 174);
+            this.CurrentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CurrentImage.TabIndex = 8;
             this.CurrentImage.TabStop = false;
             // 
@@ -134,19 +155,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 319);
+            this.ClientSize = new System.Drawing.Size(588, 321);
+            this.Controls.Add(this.gifBox);
             this.Controls.Add(this.CurrentImage);
             this.Controls.Add(this.DoneBtn);
             this.Controls.Add(this.CurrentLbl);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.BlackDotsBtn);
             this.Controls.Add(this.TitleLbl);
             this.Controls.Add(this.Text2112);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.BlackLineBtn);
+            this.Controls.Add(this.GreyBtn);
             this.Controls.Add(this.DefaultBtn);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "OVM";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gifBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,14 +179,15 @@
         #endregion
 
         private System.Windows.Forms.RadioButton DefaultBtn;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton GreyBtn;
+        private System.Windows.Forms.RadioButton BlackLineBtn;
         private System.Windows.Forms.Label Text2112;
         private System.Windows.Forms.Label TitleLbl;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton BlackDotsBtn;
         private System.Windows.Forms.Label CurrentLbl;
         private System.Windows.Forms.Button DoneBtn;
         private System.Windows.Forms.PictureBox CurrentImage;
+        private System.Windows.Forms.PictureBox gifBox;
     }
 }
 
