@@ -39,6 +39,7 @@
             this.DoneBtn = new System.Windows.Forms.Button();
             this.gifBox = new System.Windows.Forms.PictureBox();
             this.CurrentImage = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gifBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentImage)).BeginInit();
             this.SuspendLayout();
@@ -151,11 +152,23 @@
             this.CurrentImage.TabIndex = 8;
             this.CurrentImage.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(324, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 26);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "COLORCOLOR";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 321);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gifBox);
             this.Controls.Add(this.CurrentImage);
             this.Controls.Add(this.DoneBtn);
@@ -188,6 +201,7 @@
         private System.Windows.Forms.Button DoneBtn;
         private System.Windows.Forms.PictureBox CurrentImage;
         private System.Windows.Forms.PictureBox gifBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

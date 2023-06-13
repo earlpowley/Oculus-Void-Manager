@@ -18,22 +18,19 @@ using Microsoft.Win32;
  * Implement Non-default specificity --- CurrentString()
  * 
  * File.Copy --------------------------- DoneBtn.Click()   
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ *      Say they select black dots while Default
+ *      Name default to .old
+ *      name black dots to .006
+ *      
+ *      Select default from black dots
+ *      Name
  */
 
 namespace Oculus_Void_Manager
 {
     public partial class Form1 : Form
     {
-        public char Chosen = 'X';
+        public string Chosen = "InitalizedValue";
 
         public string CheckIfPathExist()
         {
@@ -49,10 +46,17 @@ namespace Oculus_Void_Manager
                 this.Close();
             }
 
+            ////////////
+            string newString = basePath + @"\grid_plane_006.dds";
+            Bitmap B = new Bitmap(newString);
+            Color x = B.GetPixel(500, 500);
+            label1.ForeColor = x;
+            ////////////
+            
             return basePath;
         }
 
-        public string CurrentString()
+        public string GetCurrentString()
         {
             RegistryKey oculusKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Oculus VR, LLC\Oculus");
             string basePath = (string)oculusKey.GetValue("Base");
@@ -62,6 +66,8 @@ namespace Oculus_Void_Manager
                 return "Default (White Lines)";
             else
             {
+                /*Bitmap B = new Bitmap(path + @"\grid_plane_006.dds");
+                Color x = B.GetPixel(500, 500);*/
                 return "Non-Default";
             }
                
@@ -71,7 +77,7 @@ namespace Oculus_Void_Manager
         {
             this.Text = "OVM";
             DefaultBtn.Checked = true;
-            CurrentLbl.Text = CurrentString();   
+            CurrentLbl.Text = GetCurrentString();   
             CheckIfPathExist();
         }
 
@@ -84,28 +90,28 @@ namespace Oculus_Void_Manager
         {
             CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.Default_Image;
             gifBox.Image = Oculus_Void_Manager.Properties.Resources._default;
-            Chosen = 'A';
+            Chosen = "Default (White Lines)";
         }
 
         private void GreyBtn_MouseClick(object sender, MouseEventArgs e)
         {
             CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
             gifBox.Image = Oculus_Void_Manager.Properties.Resources.greydot;
-            Chosen = 'B';
+            Chosen = "Grey Dots";
         }
 
         private void BlackLineBtn_MouseClick(object sender, MouseEventArgs e)
         {
             CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
             gifBox.Image = Oculus_Void_Manager.Properties.Resources.blackline;
-            Chosen = 'C';
+            Chosen = "Black Lines";
         }
 
         private void BlackDotsBtn_MouseClick(object sender, MouseEventArgs e)
         {
             CurrentImage.Image = Oculus_Void_Manager.Properties.Resources.karam;
             gifBox.Image = Oculus_Void_Manager.Properties.Resources.blackdot;
-            Chosen = 'D';
+            Chosen = "Black Dots";
         }
 
         private void DoneBtn_MouseClick(object sender, MouseEventArgs e)
@@ -114,26 +120,35 @@ namespace Oculus_Void_Manager
             string D = CheckIfPathExist() + @"\grid_plane_004.dds";
             string B = CheckIfPathExist() + @"\grid_plane_003.dds";
             string A = CheckIfPathExist() + @"\grid_plane_006.dds";//default
-            switch (Chosen)
+/*
+            if(CurrentLbl.Text == Chosen)
             {
-                case 'A':
-                    if (CurrentLbl.Text[0] == 'D')
-                    
-                    File.Copy(x, x, true);
-                    break;
-                case 'B':
-                    File.Copy(x, x, true);
-                    break;
-                case 'C':
-                    File.Copy(x, x, true);
-                    break;
-                case 'D':
-                    File.Copy(x, x, true);
-                    break;
-                case 'X':
-                    MessageBox.Show("Error: Selection Not Found.");
-                    break;
+                MessageBox.Show(Chosen + " is already selected.");
+                this.Close();
             }
+            else
+            {
+                switch (Chosen)
+                {
+                    case "Default (White Lines)":
+                        //Check if chosen is already selected
+                        if (CurrentLbl.Text[0] == 'D')
+                            MessageBox.Show("Default is already selected");
+                    
+                        File.Copy(x, x, true);
+                        break;
+                    case "Grey Dots":
+                        break;
+                    case "Black Lines":
+                        break;
+                    case "Black Dots":
+                        break;
+                    case "InitializedValue":
+                        MessageBox.Show("Error: Selection Not Found.");
+                        break;
+                } 
+            }*/
+            
         }
     }
 }
